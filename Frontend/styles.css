@@ -1,7 +1,6 @@
 /* Reset default styles */
 /* Styling for the header and navigation bar */
 
-/* Styling for the header and navigation bar */
 /* Base styling for the header */
 
 body, h1, h2, h3, p, ul, li, label, input, button {
@@ -12,7 +11,7 @@ body, h1, h2, h3, p, ul, li, label, input, button {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background-color: lightgoldenrodyellow; /* Changed background color to light sandal */
 }
 
 .container {
@@ -75,10 +74,12 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
 .footer {
     padding: 20px 0;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
 }
+
 .footer-container {
     display: flex;
     justify-content: space-around;
@@ -87,59 +88,73 @@ a:hover {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .footer-logo {
     flex: 1;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .footer-links {
     flex: 1;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .footer-links h4 {
     margin-bottom: 10px;
 }
+
 .footer-links ul {
     list-style: none;
     padding: 0;
 }
+
 .footer-links ul li {
     margin: 5px 0;
 }
+
 .footer-links ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
+
 .footer-links ul li a:hover {
     color: #007BFF;
 }
+
 .footer-contact {
     flex: 1;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .footer-contact h4 {
     margin-bottom: 10px;
 }
+
 .footer-contact p {
     margin: 5px 0;
     color: #333;
 }
+
 .footer-social {
     flex: 1;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .footer-social h4 {
     margin-bottom: 10px;
 }
+
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
+
 .social-icons .icon {
     width: 30px;
     height: 30px;

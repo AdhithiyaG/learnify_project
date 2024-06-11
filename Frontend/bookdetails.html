@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: gol;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #book-info {
+            text-align: left;
+        }
+        #book-info h2 {
+            color: #333;
+        }
+        #book-info p {
+            margin: 5px 0;
+        }
+        #book-info a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        #book-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Learnify Logo">
+        </div>
+        <nav>
+            <a href="help_options.html">Home</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Book Search</h1>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search for a book">
+            <button type="submit">Search</button>
+        </form>
+        <div id="book-info"></div>
+    </div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value;
+            fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const book = data.docs[0]; // Get the first book from the search results
+                    if (book) {
+                        const amazonId = book.id_amazon ? book.id_amazon[0] : null;
+                        const amazonLink = amazonId ? `<a href="https://www.amazon.com/dp/${amazonId}" target="_blank">${book.title}</a>` : 'N/A';
+
+                        // Fetch the detailed work data
+                        fetch(`https://openlibrary.org${book.key}.json`)
+                            .then(response => response.json())
+                            .then(workData => {
+                                const description = workData.description ? (typeof workData.description === 'string' ? workData.description : workData.description.value) : 'No description available';
+
+                                document.getElementById('book-info').innerHTML = `
+                                    <h2>${book.title}</h2>
+                                    <p><strong>Author: </strong> ${book.author_name ? book.author_name.join(', ') : 'N/A'}</p>
+                                    <p><strong>First Published: </strong> ${book.first_publish_year || 'N/A'}</p>
+                                    <p><strong>Amazon Link: </strong> ${amazonLink}</p>
+                                    <p><strong>Description: </strong> ${description}</p>
+                                    <p><strong>Number of Pages: </strong>${book.number_of_pages_median || 'N/A'}</p>
+                                    <p><strong>First Sentence: </strong>${book.first_sentence || 'N/A'}</p>
+                                    <p><strong>Rating: </strong>${book.ratings_average || 'N/A'}</p>
+                                `;
+                            })
+                            .catch(error => {
+                                console.error('Error fetching work data:', error);
+                                document.getElementById('book-info').innerHTML = `
+                                    <h2>${book.title}</h2>
+                                    <p><strong>Author:</strong> ${book.author_name ? book.author_name.join(', ') : 'N/A'}</p>
+                                    <p><strong>First Published:</strong> ${book.first_publish_year || 'N/A'}</p>
+                                    <p><strong>Amazon Link:</strong> ${amazonLink}</p>
+                                    <p><strong>Description:</strong> No description available</p>
+                                `;
+                            });
+                    } else {
+                        document.getElementById('book-info').innerHTML = `<p>No results found</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('book-info').innerHTML = `<p>An error occurred while searching for the book</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

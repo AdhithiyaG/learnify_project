@@ -14,12 +14,15 @@
 
             $query = "insert into form (fname, lname, gender, email, pass) values ('$firstname', '$lastname', '$Gender', '$gmail', '$password')";
 
-            mysqli_query($con, $query);
-
-            echo "<script type='text/javascript'> alert('Successfully Register')</script>";
-        }
-        else{
-            echo "<script type='text/javascript'> alert('Please Enter some Valid Information')</script>";
+            if (mysqli_query($con, $query)) {
+                echo "<script type='text/javascript'> alert('Successfully Registered');</script>";
+                header("Location: login.php");
+                exit();  // Ensure no further code is executed after redirection
+            } else {
+                echo "<script type='text/javascript'> alert('Database Error');</script>";
+            }
+        } else {
+            echo "<script type='text/javascript'> alert('Please Enter some Valid Information');</script>";
         }
     }
 ?>
@@ -36,7 +39,7 @@
 <body>
     <div class="container">
         <h1>Sign Up for Learnify</h1>
-        <form id="signup-form" action="signup.php" method="POST" onsubmit="return validateForm()">
+        <form id="signup-form"  method="POST" onsubmit="return validateForm()">
             <!-- Other form fields -->
             <label for="first-name">First Name:</label>
             <input type="text" id="first-name" name="fname" required>
@@ -60,7 +63,7 @@
             <span id="email-error" class="error"></span>
             <span id="password-error" class="error"></span>
             <span id="confirm-password-error" class="error"></span>
-        
+
             <!-- Other form fields -->
             <label for="institution">Institution:</label>
             <input type="text" id="institution" name="institution" required>
@@ -71,55 +74,58 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="pass" required minlength="8">
             <span id="password-error" class="error"></span>
-        
+
             <label for="confirm-password">Confirm Password:</label>
             <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
             <span id="confirm-password-error" class="error"></span>
-        
+
             <!-- Other form fields -->
-            <p>By clicking the sign up button you agree to our <span style="color:blue ; text-decoration: underline;">Terms and conditions</span> and <span style="color: blue; text-decoration: underline">Privacy and policies</span></p>
-        
+            <p>By clicking the sign up button you agree to our <span style="color:blue; text-decoration: underline;">Terms and conditions</span> and <span style="color: blue; text-decoration: underline;">Privacy and policies</span></p>
+
             <button type="submit" class="btn next-btn">Sign Up</button>
         </form>
-        
-        <script>
-        function validateForm() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            const age = parseInt(document.getElementById('age').value, 10);
-            const dateOfBirth = new Date(document.getElementById('date-of-birth').value);
-            const today = new Date();
-        // Email validation
-        const email = document.getElementById('email').value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!emailRegex.test(email)) {
-            document.getElementById('email-error').textContent = 'Invalid email address.';
-            return false;
-        }
-            // Password match validation
-            if (password !== confirmPassword) {
-                document.getElementById('confirm-password-error').textContent = 'Passwords do not match.';
-                return false;
+        <script>
+            function validateForm() {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const age = parseInt(document.getElementById('age').value, 10);
+                const dateOfBirth = new Date(document.getElementById('date-of-birth').value);
+                const today = new Date();
+                const email = document.getElementById('email').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Email validation
+                if (!emailRegex.test(email)) {
+                    document.getElementById('email-error').textContent = 'Invalid email address.';
+                    return false;
+                }
+
+                // Password match validation
+                if (password !== confirmPassword) {
+                    document.getElementById('confirm-password-error').textContent = 'Passwords do not match.';
+                    return false;
+                }
+
+                // Age calculation from date of birth
+                let ageFromDOB = today.getFullYear() - dateOfBirth.getFullYear();
+                const monthDifference = today.getMonth() - dateOfBirth.getMonth();
+
+                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dateOfBirth.getDate())) {
+                    ageFromDOB--;
+                }
+
+                // Age validation
+                if (age !== ageFromDOB) {
+                    document.getElementById('age-error').textContent = 'Age does not match the date of birth.';
+                    return false;
+                }
+
+                // If validation passes, allow form submission and redirect
+                window.location.href = "login.php";
+                return true;
             }
-        
-            // Age calculation from date of birth
-            let ageFromDOB = today.getFullYear() - dateOfBirth.getFullYear();
-            const monthDifference = today.getMonth() - dateOfBirth.getMonth();
-        
-            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dateOfBirth.getDate())) {
-                ageFromDOB--;
-            }
-        
-            // Age validation
-            if (age !== ageFromDOB) {
-                document.getElementById('age-error').textContent = 'Age does not match the date of birth.';
-                return false;
-            }
-        
-            // If validation passes, allow form submission
-            return true;
-        }
         </script>
+    </div>
 </body>
 </html>

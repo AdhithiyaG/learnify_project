@@ -5,35 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Can I Help You? | Learnify</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .career-path-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background-color: #fff7e6;
+    }
+    
+    .content {
+        max-width: 50%;
+    }
+    
+    .content h2 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    .content h2 span {
+        display: block;
+        color: #ff9900;
+    }
+    
+    .content p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff9900;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    
+    .images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-image {
+        width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .secondary-image {
+        width: 200px;
+        height: auto;
+    }
+</style>
     
 </head>
 <body>
     <header class="header">
-        <img src="logo3.png" alt="My Logo" class="logo" style="width: 200px; height: auto;">
+        <img src="logo.png" alt="My Logo" class="logo" style="width: 200px; height: auto;">
         <header ></header>
         <!-- Other header content like navigation can go here -->
     </header>
-    <div class="container">
-        <h1>Hi,Welcome to Learnify how can I help you?</h1>
-        <div class="buttons">
-            <button onclick="redirectToCareerGuidance()" class="btn">Career Guidance</button>
-            <button onclick="redirectToBookRecommendations()" class="btn">Books</button>
-        </div>
-    </div>
-
+        <h1 style="text-align: center;">Hi, Welcome to Learnify Dashboard! How can I help you?</h1>
+            <div class="career-path-section">
+                <div class="content">
+                    <h2><span>Career Recommendation System:</span></h2>
+                    <p>Unlock Your Potential! Our Career Recommendation System analyzes your skills and interests to provide tailored career suggestions that match your aspirations.</p>
+                    <button onclick="redirectToCareerGuidance()" class="btn">Career Guidance</button>
+                </div>
+                <div class="images">
+                    <img src="career_recommend.jpeg" alt="Career Path Image 1" class="main-image">
+                </div>
+            </div>
+        
+            <div class="career-path-section">
+                <div class="content">
+                    <h2><span>Book Description:</span></h2>
+                    <p>Book descriptions are the gateway to new worlds, inviting readers to embark on thrilling adventures, delve into mysterious realms, and explore the depths of human emotions. Crafted with precision, they offer tantalizing glimpses into the heart of a story, teasing out its themes, characters, and settings with just a few carefully chosen words. </p>
+                    <button onclick="redirectToBookRecommendations()" class="btn">Books</button>
+                </div>
+                <div class="images">
+                    <img src="books.jpeg" alt="Career Path Image 1" class="main-image">
+                </div>
+            </div>
+        
+            <div class="career-path-section">
+                <div class="content">
+                    <h2><span>Sticky Notes:</span></h2>
+                    <p>Stay Organized, Stay Focused! With our Sticky Notes feature, jot down quick reminders, ideas, or to-dos, and keep them right at your fingertips. Never let a brilliant idea slip away again!</p>
+                    <button onclick="redirectToStickyNotes()" class="btn">Sticky Notes</button>
+                </div>
+                <div class="images">
+                    <img src="sticky notes.jpeg" alt="Career Path Image 1" class="main-image">
+                </div>
+            </div>
+        
+            <div class="career-path-section">
+                <div class="content">
+                    <h2><span>Dictionary:</span></h2>
+                    <p>Expand Your Vocabulary! Our Dictionary feature is your go-to tool for exploring new words, their meanings, and usage. Enhance your language skills and impress others with your eloquence.</p>
+                    <button onclick="redirectToDictionary()" class="btn">Dictionary</button>
+                </div>
+                <div class="images">
+                    <img src="dictionary.jpeg" alt="Career Path Image 1" class="main-image">
+                </div>
+            </div>
+        
+            <div class="career-path-section">
+                <div class="content">
+                    <h2><span>Resume Builder:</span></h2>
+                    <p>Craft Your Success Story! Our Resume Builder empowers you to create professional resumes effortlessly. Impress recruiters with sleek, polished resumes that showcase your skills and achievements.</p>
+                    <button onclick="redirectToResumeBuilder()" class="btn">Resume Builder</button>
+                </div>
+                <div class="images">
+                    <img src="resume.jpeg" alt="Career Path Image 1" class="main-image">
+                </div>
+            </div> 
     <script>
         function redirectToCareerGuidance() {
             window.location.href = "http://127.0.0.1:5000";
         }
 
         function redirectToBookRecommendations() {
-            window.location.href = "book_assessment.html";
+            window.location.href = "bookdetails.html";
+        }
+        function redirectToStickyNotes() {
+            window.location.href = "notes.html";
+        }
+
+        function redirectToDictionary() {
+            window.location.href = "dict.html";
+        }
+
+        function redirectToResumeBuilder() {
+            window.location.href = "resume.html";
         }
     </script>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="logo3.png" alt="My Logo" class="logo" style="width: 150px; height: auto;">
+                <img src="logo.png" alt="My Logo" class="logo" style="width: 150px; height: auto;">
             </div>
             <div class="footer-links">
                 <h4>Support</h4>

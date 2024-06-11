@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Learnify</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .logo {
+            width: 150px; /* Adjust the size as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .hero-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+        .hero-content {
+            max-width: 60%;
+        }
+        .hero-section h1 {
+            font-size: 2.5em;
+            color: #006400;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .hero-section .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .hero-section .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        .hero-section .features div {
+            font-size: 1em;
+            color: #333;
+        }
+        .hero-section .get-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .hero-section .get-now-btn:hover {
+            background-color: #FFA500;
+        }
+        .hero-section .illustration img {
+            max-width: 300px;
+            height: auto;
+        }
+        .help-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.image-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    max-width: 1200px;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.feature-item {
+    flex: 1 1 calc(25% - 40px);
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item img {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.feature-item h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+    </style>
+</head>
+<body>
+<div style="position: relative;">
+    <img src="target.png" alt="target" style="width: 100%; height: auto;"/>
+    <div class="header" style="position: absolute; top: 20px; left: 20px;">
+        <img src="logo.png" alt="Learnify" class="logo"/>
+    </div>
+    <div class="header" style="position: absolute; top: 20px; right: 20px;">
+        <button class="button" onclick="redirectTologin()" id="loginbtn">Sign In</button>
+        <button class="button" onclick="redirectTosignup()" id="registerbtn">Sign Up</button>
+    </div>
+</div>
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Choose your Perfect Career</h1>
+        <p>with a Personalised Career Guidance Report</p>
+        <p class="highlight">With ZERO Confusion</p>
+        <div class="features">
+            <div>Personalised Career Report</div>
+            <div>20+ Career Options</div>
+            <div>Link to YouTube Videos</div>
+        </div>
+        <a href="http://localhost/learnify_project/Frontend/signup.php"  class="get-now-btn">Sign Up Now</a>
+    </div>
+    <div class="illustration">
+        <img src="runner.png" alt="Runner Illustration">
+    </div>
+</div>
+<div class="help-section">
+    <div class="image-banner">
+        <img src="hero.png" alt="Career Illustration">
+    </div>
+    <div class="content">
+        <h2>How Learnify can help you?</h2>
+        <p>“What am I passionate about?” “What am I going to be?” These are the most difficult questions one has to face while they decide to pursue their higher education.</p>
+        <p>Don't worry! We are here to help you.</p>
+        <div class="features">
+            <div class="feature-item">
+                <img src="icon-library.png" alt="Career Library Icon">
+                <h3>Career Library</h3>
+                <p>Our comprehensive career library consists of 50+ career options and more things to explore.</p>
+            </div>
+            <div class="feature-item">
+                <img src="icon-assessment.png" alt="Career Assessment Icon">
+                <h3>Career Assessment</h3>
+                <p>Our AI-based assessment and precise 20-page personalized career report helps you discover your interest and maps it with the perfect career.</p>
+            </div>
+            <div class="feature-item">
+                <img src="icon-masterclass.png" alt="Master Class Icon">
+                <h3>Master Class</h3>
+                <p>Get inspired by video bytes from veterans successful in their fields, teaching about the right ideas to succeed in the industry.</p>
+            </div>
+            <div class="feature-item">
+                <img src="icon-counselling.png" alt="Counseling Icon">
+                <h3>One-to-one counselling</h3>
+                <p>Get personal, online, one-to-one counseling sessions (interactions) with the field experts to gain a deeper insights in your field.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="logo.png" alt="My Logo" class="logo" style="width: 150px; height: auto;">
+        </div>
+        <div class="footer-links">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#contact-info">Contact Info</a></li>
+                <li><a href="#email">Email</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Info</h4>
+            <p>+0913-705-3875</p>
+            <p>ElizabethJ@jourrapide.com</p>
+            <p>4808 Skinner Hollow Road<br>Days Creek, OR 97429</p>
+        </div>
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V10.41h3.128V7.797c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24h-1.918c-1.504 0-1.794.715-1.794 1.764v2.313h3.586l-.467 3.295h-3.12V24h6.116C23.407 24 24 23.407 24 22.676V1.325C24 .593 23.407 0 22.675 0z"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M23.953 4.569a10.004 10.004 0 01-2.825.775 4.935 4.935 0 002.163-2.725 9.987 9.987 0 01-3.13 1.195 4.926 4.926 0 00-8.392 4.482A13.978 13.978 0 011.671 3.149a4.902 4.902 0 001.523 6.573 4.919 4.919 0 01-2.231-.616v.061a4.923 4.923 0 003.946 4.827 4.901 4.901 0 01-2.224.084 4.929 4.929 0 004.6 3.417A9.867 9.867 0 010 21.54a13.955 13.955 0 007.548 2.209c9.057 0 14.01-7.514 14.01-14.007 0-.213-.005-.426-.015-.637A10.012 10.012 0 0024 4.59z"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 2.163c-2.837 0-3.188.013-4.294.062-1.107.05-1.86.218-2.54.464-.688.246-1.27.568-1.84 1.137-.57.57-.892 1.152-1.138 1.84-.246.679-.414 1.433-.464 2.54-.049 1.106-.062 1.457-.062 4.294s.013 3.188.062 4.294c.05 1.107.218 1.86.464 2.54.246.688.568 1.27 1.137 1.84.57.57 1.152.892 1.84 1.138.679.246 1.433.414 2.54.464 1.106.049 1.457.062 4.294.062s3.188-.013 4.294-.062c1.107-.05 1.86-.218 2.54-.464.688-.246 1.27-.568 1.84-1.137.57-.57.892-1.152 1.138-1.84.246-.679.414-1.433.464-2.54.049-1.106.062-1.457.062-4.294s-.013-3.188-.062-4.294c-.05-1.107-.218-1.86-.464-2.54-.246-.688-.568-1.27-1.137-1.84-.57-.57-1.152-.892-1.84-1.138-.679-.246-1.433-.414-2.54-.464-1.106-.049-1.457-.062-4.294-.062zm0-2.163c2.91 0 3.278.011 4.437.064 1.159.053 1.947.241 2.64.513.725.286 1.345.67 1.965 1.29.62.62 1.004 1.24 1.29 1.965.272.693.46 1.481.513 2.64.053 1.159.064 1.527.064 4.437s-.011 3.278-.064 4.437c-.053 1.159-.241 1.947-.513 2.64-.286.725-.67 1.345-1.29 1.965-.62.62-1.24 1.004-1.965 1.29-.693.272-1.481.46-2.64.513-1.159.053-1.527.064-4.437.064s-3.278-.011-4.437-.064c-1.159-.053-1.947-.241-2.64-.513-.725-.286-1.345-.67-1.965-1.29-.62-.62-1.004-1.24-1.29-1.965-.272-.693-.46-1.481-.513-2.64-.053-1.159-.064-1.527-.064-4.437s.011-3.278.064-4.437c.053-1.159.241-1.947.513-2.64.286-.725.67-1.345 1.29-1.965.62-.62 1.24-1.004 1.965-1.29.693-.272 1.481-.46 2.64-.513 1.159-.053 1.527-.064 4.437-.064z"/><path d="M12.004 5.838a6.162 6.162 0 00-6.162 6.162 6.162 6.162 0 006.162 6.162 6.162 6.162 0 006.162-6.162 6.162 6.162 0 00-6.162-6.162zm0 10.138a3.977 3.977 0 01-3.977-3.977 3.977 3.977 0 013.977-3.977 3.977 3.977 0 013.977 3.977 3.977 3.977 0 01-3.977 3.977zM18.406 4.594a1.44 1.44 0 01-1.44 1.44 1.44 1.44 0 01-1.44-1.44 1.44 1.44 0 011.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M19 0h-14c-2.75 0-5 2.25-5 5v14c0 2.75 2.25 5 5 5h14c2.75 0 5-2.25 5-5v-14c0-2.75-2.25-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm12.5 10.29h-3v-4.5c0-1.093-.907-2-2-2s-2 .907-2 2v4.5h-3v-9h3v1.5c.618-.931 1.619-1.5 2.5-1.5 1.881 0 3.5 1.619 3.5 3.5v5.5z"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+   function redirectTologin() {
+            window.location.href = "http://localhost/learnify_project/Frontend/login.php";
+        }
+
+    function redirectTosignup() {
+        window.location.href = "http://localhost/learnify_project/Frontend/signup.php";
+    }
+</script>
+</body>
+</html>

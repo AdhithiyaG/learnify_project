@@ -44,20 +44,19 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .logo {
-            width: 150px; /* Adjust the size as needed */
-            height: auto; /* Maintain aspect ratio */
+            width: 100px; /* Adjust the size as needed */
+            height: 25px; /* Maintain aspect ratio */
         }
         .header {
             display: flex;
             align-items: center;
             padding: 10px;
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Optional: background color for the header */
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <img src="logo3.png" alt="My Logo" class="logo" style="width: 200px; height: auto;">
+        <img src="logo.png" alt="My Logo" class="logo" style="width: 200px; height: auto;">
         <header ></header>
         <!-- Other header content like navigation can go here -->
     </header>
